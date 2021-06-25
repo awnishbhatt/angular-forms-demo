@@ -4,7 +4,10 @@
   <form #form="ngForm">
     <div class="mb-4">
       <label for="name"> Name </label>
-      <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"/>
+      <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #nameField="ngModel"/>
+      <div [hidden]="nameField.valid || nameField.untouched"  class="alert alert-danger">
+        Enter a Name
+      </div>
     </div>
 
     <div class="form-check">
@@ -55,8 +58,8 @@
 
 </div>
 
-{{ form.value | json }}
+<!--{{ form.value | json }}
 
 <hr/>
-{{ userSettings | json }}
+{{ //userSettings | json }}-->
 
